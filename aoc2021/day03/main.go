@@ -42,19 +42,17 @@ func solution2(data []uint64, n uint64) (uint64, uint64) {
 }
 
 func solution1(data []uint64, n uint64) (uint64, uint64) {
-	counts := make([]uint64, n)
-	for _, num := range data {
-		for i := uint64(0); i < n; i++ {
-			if flag := num & (1 << i); flag > 0 {
-				counts[n-i-1] += 1
-			}
-		}
-	}
-	half := uint64(len(data) / 2)
 	gamma := uint64(0)
 	epsilon := uint64(0)
-	for i := range counts {
-		if counts[n-uint64(i)-1] > half {
+
+	for i := uint64(0); i < n; i++ {
+		countOnes := 0
+		for _, num := range data {
+			if flag := num & (1 << i); flag > 0 {
+				countOnes++
+			}
+		}
+		if countOnes > len(data)/2 {
 			gamma |= 1 << i
 		} else {
 			epsilon |= 1 << i
