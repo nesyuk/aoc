@@ -62,7 +62,7 @@ func solution1(data []uint64, n uint64) (uint64, uint64) {
 }
 
 func main() {
-	fmt.Println("Day2")
+	fmt.Println("Day3")
 
 	file, err := os.Open("input.txt")
 	if err != nil {
