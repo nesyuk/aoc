@@ -17,9 +17,7 @@ const (
 
 func flash(idxs [][]int8, octos *[][]int8) int {
 	flashed := 0
-	round := 1
 	for len(idxs) > 0 {
-		round++
 		i, j := idxs[0][0], idxs[0][1]
 		idxs = idxs[1:]
 
@@ -57,16 +55,6 @@ func step(octos *[][]int8) int {
 		}
 	}
 	return flashed
-}
-
-func printGrid(grid [][]int8) {
-	for i := int8(0); i < N; i++ {
-		for j := int8(0); j < N; j++ {
-			fmt.Printf("%d", grid[i][j])
-		}
-		fmt.Println()
-	}
-	fmt.Println("==================")
 }
 
 func solution2(grid [][]int8) int {
